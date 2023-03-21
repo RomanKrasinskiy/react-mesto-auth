@@ -1,8 +1,6 @@
 import { useContext } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 
-import change from "../images/del.png";
+import change from "../images/change.png";
 import addButton from "../images/add-button.png";
 import Card from "./Card.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
@@ -12,13 +10,6 @@ function Main(props) {
 
   return (
     <>
-      <Header
-        navLinkName={props.navLinkName}
-        navLink={props}
-        userEmail={props.userEmail}
-        onExit={props.onExit}
-      />
-
       <section className="page__profile profile">
         <div className="profile__caption">
           <img
@@ -58,7 +49,7 @@ function Main(props) {
           />
         ))}
       </section>
-      <Footer />
+      
     </>
   );
 }

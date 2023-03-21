@@ -6,7 +6,8 @@ import { auth } from "../utils/auth";
 
 import Login from "./Login";
 import Register from "./Register";
-
+import Footer from "./Footer";
+import Header from "./Header";
 import Main from "./Main";
 import EditProfilePopup from "./EditProfilePopup";
 import AddPlacePopup from "./AddPlacePopup";
@@ -196,6 +197,15 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App page">
+
+      {/* <Header
+        navLinkName={navLinkName}
+        navLink={navLink}
+        userEmail={userEmail}
+        onExit={handleExit}
+      /> */}
+        {/* <Header userEmail={userEmail} onExit={handleExit} /> */}
+
         <Routes>
           <Route
             path="/sign-up"
@@ -218,12 +228,13 @@ function App() {
             }
           />
           <Route element={<ProtectedRoute loggedIn={loggedIn} />}>
+            
             <Route
               path="/"
-              element={
+              element={ 
+              <>
+                <Header userEmail={userEmail} onExit={handleExit} />
                 <Main
-                  userEmail={userEmail}
-                  onExit={handleExit}
                   cards={cards}
                   onEditProfile={handleEditProfileClick}
                   onAddPlace={handleAddPlaceClick}
@@ -233,6 +244,8 @@ function App() {
                   onCardLike={handleCardLike}
                   onCardDelete={handleCardDelete}
                 />
+                <Footer /> 
+              </>
               }
             />
           </Route>
